@@ -2,6 +2,8 @@ import 'package:badges/badges.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/CategoriesWidget.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -114,12 +116,12 @@ class HomePage extends StatelessWidget {
                     topRight: Radius.circular(40),
                   ),
                   ),
-                // child: Column(
-                //   crossAxisAlignment: CrossAxisAlignment.start,
-                //   children: [
-                //     Category
-                //   ],
-                // ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CategoriesWidget(),
+                  ],
+                ),
                 ),
             ],
           ),
