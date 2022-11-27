@@ -1,8 +1,11 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sliding_sheet/sliding_sheet.dart';
 
-import '../widgets/CategoriesWidget.dart';
+import '../widgets/BottomCartSheet.dart';
+import '../widgets/ItemWidget.dart';
+import '../widgets/PopularItemWidget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -26,16 +29,16 @@ class HomePage extends StatelessWidget {
                       size: 30,
                     ),
                     Container(
-                      padding: EdgeInsets.all(8),
+                      padding: EdgeInsets.all(9),
                       decoration: BoxDecoration(
                         color: Color.fromARGB(255, 7, 50, 99),
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.white.withOpacity(0.2),
-                            blurRadius: 2,
-                          ),
-                        ],
+                        borderRadius: BorderRadius.circular(20),
+                        // boxShadow: [
+                        //   BoxShadow(
+                        //     color: Colors.grey.withOpacity(0.2),
+                        //     blurRadius: 2,
+                        //   ),
+                        // ],
                       ),
                       child: Badge(
                         badgeColor: Colors.orange,
@@ -45,7 +48,16 @@ class HomePage extends StatelessWidget {
                           style: TextStyle(color: Colors.white),
                         ),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            showSlidingBottomSheet(context, builder: (context) {
+                              return SlidingSheetDialog(
+                                  elevation: 8,
+                                  cornerRadius: 16,
+                                  builder: (context, state) {
+                                    return BottomCartSheet();
+                                  });
+                            });
+                          },
                           child: Icon(
                             CupertinoIcons.cart,
                             size: 30,
@@ -115,14 +127,12 @@ class HomePage extends StatelessWidget {
                     topLeft: Radius.circular(40),
                     topRight: Radius.circular(40),
                   ),
-                  ),
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CategoriesWidget(),
-                  ],
+                  children: [PopularItemWidget(), ItemWidget()],
                 ),
-                ),
+              ),
             ],
           ),
         ),
