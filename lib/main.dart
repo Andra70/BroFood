@@ -1,6 +1,9 @@
 import 'package:bro_food/pages/HomePage.dart';
 import 'package:flutter/material.dart';
-import 'pages/ItemPage.dart';
+import 'product/1/ItemPage.dart';
+import 'product/2/ItemPage2.dart';
+import 'product/3/ItemPage3.dart';
+import 'product/4/ItemPage4.dart';
 import 'pages/SplashScreen.dart';
 
 void main() {
@@ -20,6 +23,9 @@ class MyApp extends StatelessWidget {
         "/": (context) => SplashScreen(),
         "HomePage":(context) => HomePage(),
         "ItemPage":(context) => ItemPage(),
+        "ItemPage2":(context) => ItemPage2(),
+        "ItemPage3":(context) => ItemPage3(),
+        "ItemPage4":(context) => ItemPage4(),
       },
     );
   }
